@@ -16,11 +16,14 @@ public class Monster implements Serializable {
          System.out.println(number + ": " + type + " / " + health + "HP");
     }
 
+    public int getHealth() {
+    return health;
+}
 
     public boolean takeDamage(int dmg) {
         health -= dmg;
         if (health <= 0) {
-            System.out.println(getType() +" on kuollut!");
+            System.out.println(type +" on kuollut!");
             return false;
         } else {
             System.out.println("Hirviöllä on " + health + " elämää jäljellä.");

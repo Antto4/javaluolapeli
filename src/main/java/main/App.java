@@ -46,16 +46,23 @@ public class App {
                     break;
 
                 case 3:
-                    cave.listMonsters();
-                    if (cave.getMonsters().isEmpty()) break;
-                    System.out.println("Valitse hirviö, johon hyökätä: ");
-                    int index = Integer.parseInt(scanner.nextLine()) -1;
-                    if (index >= 0 && index < cave.getMonsters().size()) {
-                        Monster monster = cave.getMonsters().get(index);
-                        boolean alive = cave.player.attack(monster);
-                        if (!alive) cave.getMonsters().remove(index);
+                   if (!cave.getMonsters().isEmpty()) {
+                        System.out.println("Valitse hirviö, johon hyökätä:");
+                        for (int i = 0; i < cave.getMonsters().size(); i++) {
+                            Monster m = cave.getMonsters().get(i);
+                            System.out.println((i + 1) + ": " + m.getType() + " / " + m.getHealth() + "HP");
+                       }
+                        int index = Integer.parseInt(scanner.nextLine()) - 1;
+                        if (index >= 0 && index < cave.getMonsters().size()) {
+                            Monster m = cave.getMonsters().get(index);
+                            if (!cave.player.attack(m)) {
+                                cave.getMonsters().remove(index);
+                            }
+                        } else {
+                            System.out.println("Virheellinen valinta.");
+                        }
                     } else {
-                        System.out.println("Virheellinen valinta.");
+                        System.out.println("Luola on tyhjä.");
                     }
                     break;
 
