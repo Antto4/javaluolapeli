@@ -48,7 +48,7 @@ public class App {
                 case 3:
                     cave.listMonsters();
                     if (cave.getMonsters().isEmpty()) break;
-                    System.out.println("Valitse hirviö johon hyökätä: ");
+                    System.out.println("Valitse hirviö, johon hyökätä: ");
                     int index = Integer.parseInt(scanner.nextLine()) -1;
                     if (index >= 0 && index < cave.getMonsters().size()) {
                         Monster monster = cave.getMonsters().get(index);
@@ -87,4 +87,5 @@ public class App {
         }
         scanner.close();
     }
+
 }
