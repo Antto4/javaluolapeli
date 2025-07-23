@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Monster implements Serializable {
     private String type;
-    private Integer health;
+    private int health;
 
 
-    public Monster(String type, Integer health) {
+    public Monster(String type, int health) {
         this.type = type;
         this.health = health;
     }
@@ -17,8 +17,8 @@ public class Monster implements Serializable {
     }
 
     public int getHealth() {
-    return health;
-}
+        return health;
+    }
 
     public boolean takeDamage(int dmg) {
         health -= dmg;
